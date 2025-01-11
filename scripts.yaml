@@ -1,0 +1,35 @@
+directories:
+  audio:
+    permissions: 0755
+    files:
+      play:
+        permissions: 0644
+        receives:
+          "audio":
+            write:
+              command: "ffmpeg -ar 48000 -ac 2 -f wav pipe:1 -i - | aplay"
+              pipe: true
+          "audio/x-wav":
+            write:
+              command: "aplay"
+              pipe: true
+          "*":
+            write:
+              uses:
+                - "template" # Import dependency for "content" # Lets you see the content being piped
+                - "content"  # Content depends on "template" # Go text/templating + sprig v3 functions are available
+              command: "echo 'Unknown data received; {{.Content}}'"
+  anotherDirectoryDefinition:
+    permissions: 0755
+    files:
+      anotherFileDefinition:
+        permissions: 0644
+        receives:
+          "image": # Mimetype
+            write: # Upon action "Write", execute Command, while piping the data we receive/d on the file
+              command: "swayimg -"
+              pipe: true
+defaults:
+  interpreter: "sh -c"
+  timeout: "10s"
+  enqueue: true # If enabled, it won't kill other requests in order to start new ones
