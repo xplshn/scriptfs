@@ -67,7 +67,7 @@ defaults:
 Run **scriptfs**:
 
 ```sh
-./scriptfs -config path/to/scripts.yaml --mount /path/to/mountpoint
+./scriptfs --config path/to/scripts.yaml --mount /path/to/mountpoint
 ```
 
 - `--config`: Path to your `scripts.yaml` file.
