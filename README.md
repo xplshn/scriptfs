@@ -74,6 +74,9 @@ Run **scriptfs**:
 - `--mount`: Where you want to mount the filesystem.
 - `--debug`: (Optional) Enable debug output.
 
+## Show & Tell
+![image](https://github.com/user-attachments/assets/fa118c25-b842-4b1a-b994-8de9a29e1bc3)
+
 ## License
 
 **scriptfs** is licensed under the following licenses: Choose whichever fits your needs best:
