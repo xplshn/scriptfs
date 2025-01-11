@@ -82,7 +82,7 @@ type ScriptFile struct {
 	cmdCancel context.CancelFunc
 	cmdOnce   sync.Once
 	cmdErr    error
-	mimeType  *mimetype.MIME // Store the detected MIME type
+	mimeType  *mimetype.MIME // Stores the detected MIME type
 }
 
 func (sf *ScriptFile) Open(ctx context.Context, flags uint32) (fs.FileHandle, uint32, syscall.Errno) {
